@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include xlerp *.css
+recursive-include xlerp *.csv
+recursive-include xlerp *.html
+recursive-include xlerp *.ico
+recursive-include xlerp *.js
+recursive-include xlerp *.json
+recursive-include xlerp *.md
+recursive-include xlerp *.png
+recursive-include xlerp *.py
+recursive-include xlerp *.svg
+recursive-include xlerp *.txt
+recursive-exclude xlerp *.pyc
