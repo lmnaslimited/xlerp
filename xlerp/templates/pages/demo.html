@@ -1,5 +1,29 @@
 {% extends "templates/web.html" %}
 
+{% set domains = frappe.get_doc("Domain Settings").active_domains %}
+{% set links = {
+	'Manufacturing': '/manufacturing',
+	'Services': '/services',
+	'Retail': '/retail',
+	'Distribution': '/distribution',
+	'Non Profit': '/non-profit',
+	'Education': '/education',
+	'Healthcare': '/healthcare',
+	'Agriculture': '/agriculture',
+	'Hospitality': ''
+} %}
+
+{% set link = '' %}
+{% set label = '' %}
+{% if domains %}
+	{% set label = domains[0].domain %}
+	{% set link = links[label] %}
+{% endif %}
+
+{% if label == "Services" %}
+	{% set label = "Service" %}
+{% endif %}
+
 {% block script %}
 <script>
 $(document).ready(function() {
@@ -51,7 +75,7 @@ $(document).ready(function() {
 {% endblock %}
 
 {% block title %}
-{{ _("LENS Core Demo For Manufacturing") }}
+{{ _("LENS Core Demo") if domains else '' }}
 {% endblock %}
 
 {% block page_content %}
